@@ -32,7 +32,8 @@ Resume optimization tool that transforms any resume into a job-specific, ATS-fri
 uv sync
 
 # Configure
-export GOOGLE_API_KEY=your-key
+cp .env.example .env
+# Edit .env and add your GOOGLE_API_KEY
 
 # Run web UI
 uv run streamlit run src/hr_breaker/main.py
@@ -73,13 +74,17 @@ uv run hr-breaker list
 
 ## Configuration
 
+Copy `.env.example` to `.env` and set your API key. All other settings have sensible defaults.
+
 | Variable | Required | Description |
 |----------|----------|-------------|
 | `GOOGLE_API_KEY` | Yes | Google Gemini API key |
 | `GEMINI_PRO_MODEL` | No | Model for complex tasks (default: `gemini-3-pro-preview`) |
 | `GEMINI_FLASH_MODEL` | No | Model for simple tasks (default: `gemini-3-flash-preview`) |
-| `GEMINI_THINKING_BUDGET` | No | Thinking tokens budget (default: 4k) |
+| `GEMINI_THINKING_BUDGET` | No | Thinking tokens budget (default: 8192) |
 | `MAX_ITERATIONS` | No | Optimization loop limit (default: 5) |
+
+See `.env.example` for all available options (filter thresholds, scraper settings, etc.)
 
 ---
 
